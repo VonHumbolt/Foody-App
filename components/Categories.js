@@ -4,6 +4,8 @@ import CategoryCard from './CategoryCard'
 
 const Categories = () => {
   return (
+    <>
+    <Text className="text-xl font-semibold px-6 pt-4">Ne Yemek İstersin?</Text>
     <ScrollView
         contentContainerStyle={{
             paddingTop: 10,
@@ -20,7 +22,7 @@ const Categories = () => {
         <CategoryCard name="Pizza" imageUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuqigmzKb380-_Av9BRp0XeVyFIBM-YD4l0ijQH8fQiwSeaszFAPnLj3X4fKjKFzb6f4Q&usqp=CAU" />
 
     </ScrollView>
-    
+    </>
   )
 }
 

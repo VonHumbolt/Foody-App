@@ -7,7 +7,7 @@ const Trends = () => {
     <View className="py-3">
       <Text className="text-xl font-semibold px-6 pb-3">Popüler</Text>
 
-      <View
+      <TouchableOpacity
         className="relative flex flex-row border-t border-b border-gray-200
       shadow-md pb-2"
       >
@@ -20,9 +20,9 @@ const Trends = () => {
           height={100}
           alt=""
         />
-        <View className="flex justify-center px-2">
+        <View className="flex w-1/2 justify-center px-2">
           <Text className="text-lg font-semibold pb-1">Tavuklu Salata</Text>
-          <Text className="text-xs w-44 text-gray-500">
+          <Text className="text-xs text-gray-500">
             Izgara Tavuk Parçaları, Yeşillik, Domates ve Özel Ekşi Sos.
           </Text>
 
@@ -41,7 +41,7 @@ const Trends = () => {
             <PlusIcon size={20} color="#FF6B00" />
         </TouchableOpacity>
 
-      </View>
+      </TouchableOpacity>
 
     </View>
   );

@@ -29,7 +29,7 @@ const Login = () => {
 
       <View className="flex py-20 px-14">
         <Text className="text-3xl text-[#FF6B00] font-bold text-center">
-          Merhaba!
+          Foody!
         </Text>
 
         <View className="text-start mt-10">
