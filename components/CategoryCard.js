@@ -1,9 +1,17 @@
 import { View, Text, Image, TouchableOpacity } from "react-native";
 import React from "react";
+import { useNavigation } from "@react-navigation/native";
 
 const CategoryCard = ({ imageUrl, name }) => {
+
+  const navigation = useNavigation();
+
   return (
-    <TouchableOpacity className="px-2 py-4">
+    <TouchableOpacity className="px-2 py-4"
+      onPress={() => navigation.navigate("category-detail", {
+        name: name,
+      })}
+    >
       <View className="p-2 border border-gray-300 rounded-lg shadow-md">
         <Image
           className="w-20 h-20 object-cover rounded-full"

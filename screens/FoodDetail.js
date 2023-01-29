@@ -19,7 +19,7 @@ const FoodDetail = () => {
         width={100}
         height={100}
       />
-      <View className="absolute top-36 z-10 w-full">
+      <View className="absolute top-36 z-10 w-full shadow-lg">
         <Image
           className="w-72 h-72 object-contain mx-auto"
           source={{
@@ -30,7 +30,7 @@ const FoodDetail = () => {
           height={100}
         />
       </View>
-      <ScrollView className="flex-1 absolute top-72 h-screen w-full bg-white rounded-t-[64px]">
+      <ScrollView className="flex-1 absolute top-72 h-screen w-full bg-white rounded-t-[64px] shadow-md">
         <View className="mt-40 h-max px-10 flex">
           
           <View className="flex flex-row items-center justify-between">
@@ -54,7 +54,7 @@ const FoodDetail = () => {
             </Text>
           </View>
 
-          <View className="flex flex-row justify-between items-start py-8">
+          <View className="flex flex-row justify-between items-center py-8">
 
             <View className="flex flex-row items-center space-x-2">
                 {/* Minus */}
