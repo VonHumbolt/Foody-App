@@ -1,8 +1,22 @@
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
 import { StarIcon, PlusIcon } from "react-native-heroicons/solid";
+import { useNavigation } from "@react-navigation/native";
 
 const Suggested = () => {
+  const navigation = useNavigation();
+
+  const navigateToDetail = () => {
+    navigation.navigate("detail", {
+      name: "Fettuccine",
+      description: "Fettuccine Makarna, Domates Sos ve Baharatlar.",
+      imageUrl:
+        "https://www.pngplay.com/wp-content/uploads/4/Pasta-PNG-Pic-Background.png",
+      rating: 4.5,
+      price: 45,
+    });
+  };
+
   return (
     <View className="py-3">
       <Text className="text-xl font-semibold px-6 pb-3">Önerilen</Text>
@@ -10,11 +24,12 @@ const Suggested = () => {
       <TouchableOpacity
         className="relative flex flex-row px-4 border-t border-b border-gray-200
       shadow-md pb-2"
+        onPress={() => navigateToDetail()}
       >
         <Image
-          className="w-1/3 h-36 object-cover mt-4 ml-1"
+          className="w-1/3 h-32 object-cover mt-4 ml-1"
           source={{
-            uri: "https://www.pngitem.com/pimgs/m/408-4083354_940-chicken-alfredo-pasta-png-transparent-png.png",
+            uri: "https://www.pngplay.com/wp-content/uploads/4/Pasta-PNG-Pic-Background.png",
           }}
           alt=""
           width={100}

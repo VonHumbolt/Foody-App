@@ -1,6 +1,7 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { StatusBar } from "expo-status-bar";
+import FoodDetail from "./screens/FoodDetail";
 import Login from "./screens/Login";
 import Main from "./screens/Main";
 
@@ -19,6 +20,11 @@ export default function App() {
         <Stack.Screen
           name="main"
           component={Main}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="detail"
+          component={FoodDetail}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

@@ -1,8 +1,23 @@
 import { View, Text, Image, TouchableOpacity } from "react-native";
 import React from "react";
 import { StarIcon, PlusIcon } from "react-native-heroicons/solid";
+import { useNavigation } from "@react-navigation/native";
 
 const Trends = () => {
+  const navigation = useNavigation();
+
+  const navigateToDetail = () => {
+    navigation.navigate("detail", {
+      name: "Tavuklu Salata",
+      description:
+        "Izgara Tavuk Parçaları, Yeşillik, Domates ve Özel Ekşi Sos.",
+      imageUrl:
+        "https://freepngdesign.com/content/uploads/images/t_grilled-chicken-salad-2025.png",
+      rating: 4.5,
+      price: 55,
+    });
+  };
+
   return (
     <View className="py-3">
       <Text className="text-xl font-semibold px-6 pb-3">Popüler</Text>
@@ -10,6 +25,7 @@ const Trends = () => {
       <TouchableOpacity
         className="relative flex flex-row border-t border-b border-gray-200
       shadow-md pb-2"
+        onPress={() => navigateToDetail()}
       >
         <Image
           className="w-1/3 h-32 object-cover mt-4 ml-3"
@@ -27,22 +43,24 @@ const Trends = () => {
           </Text>
 
           <View className="flex flex-row justify-between pt-4">
-            <View className="flex flex-row items-center space-x-1
-             bg-[#FF6B00] px-2 py-1 rounded-full">
-                <StarIcon size={15} color="white" />
+            <View
+              className="flex flex-row items-center space-x-1
+             bg-[#FF6B00] px-2 py-1 rounded-full"
+            >
+              <StarIcon size={15} color="white" />
               <Text className="text-white font-semibold px-1">4.9</Text>
             </View>
             <Text className="text-2xl font-bold">50₺</Text>
           </View>
         </View>
 
-        <TouchableOpacity className="absolute top-3 right-5 border rounded-full
-         p-1 border-gray-200">
-            <PlusIcon size={20} color="#FF6B00" />
+        <TouchableOpacity
+          className="absolute top-3 right-5 border rounded-full
+         p-1 border-gray-200"
+        >
+          <PlusIcon size={20} color="#FF6B00" />
         </TouchableOpacity>
-
       </TouchableOpacity>
-
     </View>
   );
 };
