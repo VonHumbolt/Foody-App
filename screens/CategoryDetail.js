@@ -28,6 +28,7 @@ const CategoryDetail = () => {
   return (
     <ScrollView className="bg-gray-100/80">
       <CategoryDetailCard
+        id={3}
         name="Peynirli Makarna"
         description="Fettucine Makarna, Kaşar Peyniri. (Roka ve Domates eşliğinde)"
         imageUrl="https://freepngdesign.com/content/uploads/images/t_grilled-chicken-salad-2025.png"
@@ -35,6 +36,7 @@ const CategoryDetail = () => {
         rating={4.5}
       />
       <CategoryDetailCard
+        id={4}
         name="Cannelloni"
         description="Cannelloni Makarna, Kaşar Peyniri, Nohut taneleri ve Brokoli"
         imageUrl="https://i2.wp.com/catchhimcafe.com/wp-content/uploads/2021/06/mmm.jpg?fit=1080%2C720&ssl=1"
@@ -42,6 +44,7 @@ const CategoryDetail = () => {
         rating={4.7}
       />
       <CategoryDetailCard
+        id={5}
         name="Tavuklu Makarna"
         description="Penne Makarna, Domates Sosu, Izgara Tavuk Parçaları ve Baharatlar."
         imageUrl="https://cdn.ye-mek.net/App_UI/Img/out/420/2020/06/sosuyla-pisen-makarna-resimli-yemek-tarifi(11).jpg"
@@ -49,6 +52,7 @@ const CategoryDetail = () => {
         rating={4.9}
       />
       <CategoryDetailCard
+        id={6}
         name="Karidesli Makarna"
         description="Spagetti Makarna, Midye, Krema ve Baharatkar."
         imageUrl="https://i.lezzet.com.tr/images-xxlarge-recipe/baharatli-deniz-urunu-ve-cin-eristesi-noodle-3c23fc33-8a0c-4a22-8414-31b92bd5e9da.jpg"
@@ -56,6 +60,7 @@ const CategoryDetail = () => {
         rating={4.3}
       />
       <CategoryDetailCard
+        id={7}
         name="Midyeli Makarna"
         description="Spagetti Makarna, Midye, Krema ve Baharatkar."
         imageUrl="https://i.lezzet.com.tr/images-xxlarge-recipe/gigi-hadid-makarnasi-17fb70e5-7870-44c8-9506-95caae7ceae1.jpg"
@@ -63,6 +68,7 @@ const CategoryDetail = () => {
         rating={4.3}
       />
       <CategoryDetailCard
+        id={8}
         name="Domatesli Makarna"
         description="Spagetti Makarna, Midye, Krema ve Baharatkar."
         imageUrl="https://www.kadinx.com/wp-content/uploads/2021/01/gigi-hadid-makarna-tarifi.jpg"
@@ -70,6 +76,7 @@ const CategoryDetail = () => {
         rating={4.3}
       />
       <CategoryDetailCard
+        id={3}
         name="Kremalı Makarna"
         description="Spagetti Makarna, Midye, Krema ve Baharatkar."
         imageUrl="https://s3.eu-central-1.amazonaws.com/dijital.menu.assets/photos/Vg09v95evsjMdP1O/items/large/4a80fa189696e13be7168d1718f8ae2d.jpg"

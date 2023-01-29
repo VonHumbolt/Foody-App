@@ -8,6 +8,7 @@ const Trends = () => {
 
   const navigateToDetail = () => {
     navigation.navigate("detail", {
+      id: 1,
       name: "Tavuklu Salata",
       description:
         "Izgara Tavuk Parçaları, Yeşillik, Domates ve Özel Ekşi Sos.",

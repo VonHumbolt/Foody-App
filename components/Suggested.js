@@ -8,6 +8,7 @@ const Suggested = () => {
 
   const navigateToDetail = () => {
     navigation.navigate("detail", {
+      id: 2,
       name: "Fettuccine",
       description: "Fettuccine Makarna, Domates Sos ve Baharatlar.",
       imageUrl:

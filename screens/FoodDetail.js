@@ -1,12 +1,27 @@
 import { View, Text, Image, ScrollView, TouchableOpacity } from "react-native";
 import React, { useState } from "react";
 import { useRoute } from "@react-navigation/native";
-import {MinusIcon, PlusIcon, StarIcon} from "react-native-heroicons/solid"
+import { MinusIcon, PlusIcon, StarIcon } from "react-native-heroicons/solid";
+import { useDispatch, useSelector } from "react-redux";
+import { addToBasket, removeFromBasket, selectBasketItemsWithId } from "../redux/slices/basketSlice";
 
 const FoodDetail = () => {
-  const {params: {name, imageUrl, description, rating, price} } = useRoute();
+  const {
+    params: { id, name, imageUrl, description, rating, price },
+  } = useRoute();
 
-    const [count, setCount] = useState(0)
+
+  const dispatch = useDispatch()
+
+  const basketItems = useSelector(state => selectBasketItemsWithId(state, id));
+  const [count, setCount] = useState(basketItems.length > 0 ? basketItems[0].count : 0);
+
+  const addItemToBasket = () => {
+    if(basketItems.length > 0) {
+      dispatch(removeFromBasket({id}));
+    }
+    dispatch(addToBasket({id, name, imageUrl, price, count}))
+  }
 
   return (
     <View className="h-screen relative">
@@ -31,12 +46,11 @@ const FoodDetail = () => {
         />
       </View>
       <ScrollView className="flex-1 absolute top-72 h-screen w-full bg-white rounded-t-[64px] shadow-md">
-        <View className="mt-40 h-max px-10 flex">
-          
+        <View className="relative mt-40 h-max px-10 flex">
           <View className="flex flex-row items-center justify-between">
             <View className="flex flex-row items-center space-x-2 py-1 px-3 bg-[#FF6B00] rounded-full">
-                <StarIcon size={20} color="white" />
-                <Text className="text-lg text-white font-semibold">{rating}</Text>
+              <StarIcon size={20} color="white" />
+              <Text className="text-lg text-white font-semibold">{rating}</Text>
             </View>
             <Text className="text-3xl font-bold">{price}₺</Text>
           </View>
@@ -45,40 +59,44 @@ const FoodDetail = () => {
             <Text className="text-xl pb-2 font-bold">{name}</Text>
             <Text className="text-md text-gray-600">{description}</Text>
           </View>
-          
+
           <Text className="text-gray-500 pb-2">Pozisyon Tercihi</Text>
-          <View className="border-b border-t border-gray-300 py-3 space-y-2 px-4 shadow-lg">
+          <View className="border-b border-t border-gray-300 py-5 space-y-2 px-4 shadow-lg">
             <Text className="text-md">1 Porsiyon</Text>
-            <Text>1.5 Porsiyon {" "}
-                <Text className="font-semibold text-[#FF6B00]">+10 ₺</Text>
+            <Text>
+              1.5 Porsiyon{" "}
+              <Text className="font-semibold text-[#FF6B00]">+10 ₺</Text>
             </Text>
           </View>
 
-          <View className="flex flex-row justify-between items-center py-8">
-
+          <View className="-bottom-12 flex flex-row justify-between items-center py-8">
             <View className="flex flex-row items-center space-x-2">
-                {/* Minus */}
-                <TouchableOpacity className="p-2 border border-gray-200 rounded-full"
-                onPress={() => count!==0 && setCount(count-1)}>
-                    <MinusIcon size={20} color="gray"/>
-                </TouchableOpacity>
-                {/* Count */}
-                <Text className="text-lg font-semibold">{count}</Text>
-                {/* Plus */}
-                <TouchableOpacity className="p-2 border border-gray-200 rounded-full"
-                onPress={() => setCount(count+1)}>
-                    <PlusIcon size={20} color="#FF6B00"/>
-                </TouchableOpacity>
+              {/* Minus */}
+              <TouchableOpacity
+                className="p-2 border border-gray-200 rounded-full"
+                onPress={() => count !== 0 && setCount(count - 1)}
+              >
+                <MinusIcon size={20} color="gray" />
+              </TouchableOpacity>
+              {/* Count */}
+              <Text className="text-lg font-semibold">{count}</Text>
+              {/* Plus */}
+              <TouchableOpacity
+                className="p-2 border border-gray-200 rounded-full"
+                onPress={() => setCount(count + 1)}
+              >
+                <PlusIcon size={20} color="#FF6B00" />
+              </TouchableOpacity>
             </View>
 
-            <TouchableOpacity className="py-2 px-3 rounded-full bg-[#FF6B00]">
-                <Text className="text-lg text-white font-semibold">Sepete Ekle</Text>
+            <TouchableOpacity className="py-2 px-3 rounded-full bg-[#FF6B00]"
+            onPress={() => addItemToBasket()}>
+              <Text className="text-lg text-white font-semibold">
+                Sepete Ekle
+              </Text>
             </TouchableOpacity>
-
           </View>
-
         </View>
-        
       </ScrollView>
     </View>
   );

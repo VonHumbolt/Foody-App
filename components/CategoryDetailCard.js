@@ -2,7 +2,7 @@ import { View, Text, Image, TouchableOpacity } from "react-native";
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
 
-const CategoryDetailCard = ({ name, imageUrl, description, rating, price }) => {
+const CategoryDetailCard = ({ id, name, imageUrl, description, rating, price }) => {
   const navigation = useNavigation();
 
   return (
@@ -10,6 +10,7 @@ const CategoryDetailCard = ({ name, imageUrl, description, rating, price }) => {
       className="py-1 px-2 shadow-lg"
       onPress={() => {
         navigation.navigate("detail", {
+          id,
           name,
           imageUrl,
           description,
