@@ -27,17 +27,17 @@ Redux was used as global store to keep all cart items in the app. React native a
 Download or clone this repository. Then go to the project folder and follow these steps:
 
 1. Install Expo Cli If you haven't already install.
-
+```
    	npx install -g expo-cli
-
+```
 2. Install packages
-
+```
     npm install
-
+```
 3. Start the project
-
+```
     npx expo start
-
+```
 ## Project UI
 <p text-align="center">
     <img src="./app_images/login.jpeg" width="300" height="620">
