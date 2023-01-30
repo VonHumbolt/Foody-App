@@ -9,13 +9,20 @@ import {
 import React, { useLayoutEffect, useState } from "react";
 import { TrashIcon } from "react-native-heroicons/outline";
 import BasketItem from "../components/BasketItem";
-import { useSelector } from "react-redux";
-import { selectBasketItems } from "../redux/slices/basketSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { clearBasket, selectBasketItems } from "../redux/slices/basketSlice";
 
 const Basket = ({ navigation }) => {
+  const dispatch = useDispatch();
+
   const basketItems = useSelector(selectBasketItems);
 
   const [totalPrice, setTotalPrice] = useState(0);
+
+  const clearBasketList = () => {
+    dispatch(clearBasket());
+    navigation.navigate("main");
+  };
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -23,9 +30,9 @@ const Basket = ({ navigation }) => {
       headerTitle: "Sepetiniz",
       headerTintColor: "#FF6B00",
       headerRight: () => (
-        <View>
+        <TouchableOpacity onPress={() => clearBasketList()}>
           <TrashIcon size={25} color="#FF6b00" />
-        </View>
+        </TouchableOpacity>
       ),
     });
 
@@ -76,7 +83,17 @@ const Basket = ({ navigation }) => {
             {totalPrice}₺
           </Text>
         </Text>
-        <TouchableOpacity className="py-2 px-4 rounded-full bg-[#FF6B00] shadow-lg">
+        <TouchableOpacity
+          disabled={!basketItems.length}
+          className={
+            !basketItems.length
+              ? "py-2 px-4 rounded-full bg-gray-400 shadow-lg"
+              : "py-2 px-4 rounded-full bg-[#FF6B00] shadow-lg"
+          }
+          onPress={() => navigation.navigate("ordered", {
+            totalPrice
+          })}
+        >
           <Text className="text-lg text-white font-semibold">
             Sepeti Onayla
           </Text>

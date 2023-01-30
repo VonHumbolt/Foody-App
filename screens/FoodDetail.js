@@ -3,25 +3,32 @@ import React, { useState } from "react";
 import { useRoute } from "@react-navigation/native";
 import { MinusIcon, PlusIcon, StarIcon } from "react-native-heroicons/solid";
 import { useDispatch, useSelector } from "react-redux";
-import { addToBasket, removeFromBasket, selectBasketItemsWithId } from "../redux/slices/basketSlice";
+import {
+  addToBasket,
+  removeFromBasket,
+  selectBasketItemsWithId,
+} from "../redux/slices/basketSlice";
 
 const FoodDetail = () => {
   const {
     params: { id, name, imageUrl, description, rating, price },
   } = useRoute();
 
+  const dispatch = useDispatch();
 
-  const dispatch = useDispatch()
-
-  const basketItems = useSelector(state => selectBasketItemsWithId(state, id));
-  const [count, setCount] = useState(basketItems.length > 0 ? basketItems[0].count : 0);
+  const basketItems = useSelector((state) =>
+    selectBasketItemsWithId(state, id)
+  );
+  const [count, setCount] = useState(
+    basketItems.length > 0 ? basketItems[0].count : 0
+  );
 
   const addItemToBasket = () => {
-    if(basketItems.length > 0) {
-      dispatch(removeFromBasket({id}));
+    if (basketItems.length > 0) {
+      dispatch(removeFromBasket({ id }));
     }
-    dispatch(addToBasket({id, name, imageUrl, price, count}))
-  }
+    dispatch(addToBasket({ id, name, imageUrl, price, count }));
+  };
 
   return (
     <View className="h-screen relative">
@@ -89,8 +96,10 @@ const FoodDetail = () => {
               </TouchableOpacity>
             </View>
 
-            <TouchableOpacity className="py-2 px-3 rounded-full bg-[#FF6B00]"
-            onPress={() => addItemToBasket()}>
+            <TouchableOpacity
+              className="py-2 px-3 rounded-full bg-[#FF6B00]"
+              onPress={() => addItemToBasket()}
+            >
               <Text className="text-lg text-white font-semibold">
                 Sepete Ekle
               </Text>

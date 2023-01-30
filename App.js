@@ -8,6 +8,8 @@ import CategoryDetail from "./screens/CategoryDetail";
 import FoodDetail from "./screens/FoodDetail";
 import Login from "./screens/Login";
 import Main from "./screens/Main";
+import Ordered from "./screens/Ordered";
+import Preparing from "./screens/Preparing";
 
 const Stack = createNativeStackNavigator();
 
@@ -34,6 +36,16 @@ export default function App() {
           />
           <Stack.Screen name="category-detail" component={CategoryDetail} />
           <Stack.Screen name="basket" component={Basket} />
+          <Stack.Screen
+            name="ordered"
+            component={Ordered}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="preparing"
+            component={Preparing}
+            options={{ headerShown: false, presentation:"fullScreenModal" }}
+          />
         </Stack.Navigator>
       </Provider>
     </NavigationContainer>
