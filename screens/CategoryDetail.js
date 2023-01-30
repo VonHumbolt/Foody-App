@@ -1,4 +1,4 @@
-import { View, Text, ScrollView } from "react-native";
+import { View, Text, ScrollView, TouchableOpacity } from "react-native";
 import React, { useLayoutEffect } from "react";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { HeartIcon, ShoppingBagIcon } from "react-native-heroicons/outline";
@@ -19,7 +19,10 @@ const CategoryDetail = () => {
       headerRight: () => (
         <View className="flex flex-row items-center space-x-2">
           <HeartIcon size={25} color="#FF6B00" />
-          <ShoppingBagIcon size={25} color="#FF6B00" />
+          <TouchableOpacity onPress={() => navigation.navigate("basket")}>
+            <ShoppingBagIcon size={25} color="#FF6B00" />
+
+          </TouchableOpacity>
         </View>
       ),
     });

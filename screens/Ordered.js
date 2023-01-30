@@ -29,7 +29,7 @@ const Ordered = () => {
         {/* Image */}
         <Image
           className="w-full object-contain"
-          source={require("../assets/order_bg.png")}
+          source={require("../assets/spagetti-bg.png")}
           width={100}
           height={100}
         />

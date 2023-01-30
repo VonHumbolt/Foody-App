@@ -21,9 +21,7 @@ const Login = () => {
           width={100}
           height={100}
           alt=""
-          source={{
-            uri: "https://cafe4u.ca/wp-content/uploads/2021/04/product-08.png",
-          }}
+          source={require("../assets/login_img.png")}
         />
       </View>
 
