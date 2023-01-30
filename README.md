@@ -28,6 +28,15 @@ Redux was used as global store to keep all cart items in the app. React native a
 
 
 ## Project UI
+<p text-align="center">
+    <img src="./app_images/login.jpeg" width="390" height="844">
+    <img src="./app_images/main.jpeg" width="390" height="844">
+    <img src="./app_images/food_detail.jpeg" width="390" height="844">
 <p>
-    <img src="./app_images/login.jpeg">
+<p text-align="center">
+    <img src="./app_images/categories_details.jpeg" width="390" height="844">
+    <img src="./app_images/basket.jpeg" width="390" height="844">
+<p text-align="center">
+    <img src="./app_images/order.jpeg" width="390" height="844">
+    <img src="./app_images/preparing.jpeg" width="390" height="844">
 <p>
